@@ -235,6 +235,29 @@
 			    Phone( English -What's up Only): <a href="tel:+1(305)922-5254">+1 (305)922-5254
                             </a><br>
                             <!-- Add more contact information as needed -->
+
+		<h2>Service Request Form</h2>
+    
+    <form action="submit_form.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="service">Select Service:</label>
+        <select id="service" name="service" required>
+            <option value="service1">Service 1</option>
+            <option value="service2">Service 2</option>
+            <option value="service3">Service 3</option>
+            <!-- Add more services as needed -->
+        </select>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="submit">Submit Request</button>
+    </form>		    
                         </address>
                     </section>
 
