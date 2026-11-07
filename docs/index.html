@@ -26,15 +26,15 @@
     body { background: var(--cream); color: var(--muted); }
     header {
       position: relative;
-      min-height: min(820px, 100svh);
+      min-height: 0;
       height: auto !important;
       background: linear-gradient(135deg, rgba(23, 59, 61, .97), rgba(38, 91, 82, .88)),
         url("images/cleaners.jpg") center/cover;
       padding-bottom: 72px;
     }
-    .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 78px); align-items: center; min-height: 610px; text-align: left; }
-    .hero-visual { position: relative; min-height: 430px; }
-    .hero-visual img { width: 100%; height: clamp(360px, 48vw, 520px); object-fit: cover; object-position: center; border: 8px solid rgba(255,255,255,.92); border-radius: 28px; box-shadow: 0 24px 60px rgba(0,0,0,.28); transform: rotate(2deg); }
+    .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 68px); align-items: center; min-height: 0; padding: 58px 0 48px; text-align: left; }
+    .hero-visual { position: relative; min-height: 0; padding: 12px 20px 20px 0; }
+    .hero-visual img { width: 100%; height: clamp(330px, 40vw, 450px); object-fit: cover; object-position: center; border: 8px solid rgba(255,255,255,.92); border-radius: 28px; box-shadow: 0 24px 60px rgba(0,0,0,.28); transform: rotate(2deg); }
     .hero-badge { position: absolute; left: -28px; bottom: 28px; width: 150px; height: 150px; display: grid; place-items: center; padding: 18px; border-radius: 50%; background: var(--gold); color: var(--ink); text-align: center; font: 14px/1.35 'opensans-bold', sans-serif; box-shadow: 0 12px 30px rgba(0,0,0,.22); transform: rotate(-8deg); }
     .hero-badge i { display: block; margin-bottom: 6px; font-size: 24px; }
     header::after {
@@ -52,7 +52,7 @@
     }
     #nav-wrap { background: rgba(23, 59, 61, .92); }
     ul#nav li.current a, ul#nav li a:hover, ul#nav li a:focus { color: #f2c477; }
-    header .banner { padding-top: 110px; }
+    header .banner { padding-top: 48px; }
     header .banner-text h1 {
       max-width: 860px;
       font-size: clamp(42px, 7vw, 82px);
@@ -142,11 +142,10 @@
     .section-cta p { margin-bottom: 8px; color: var(--ink); font: 18px 'opensans-bold', sans-serif; }
     .service-copy { padding-left: 12px; }
     .service-copy .section-intro { max-width: 760px; }
-    .service-row { display: grid; grid-template-columns: minmax(260px, .78fr) minmax(0, 1.22fr); align-items: center; gap: clamp(28px, 5vw, 64px); }
-    .service-row > .six.columns:first-child,
-    .service-row > .six.columns:last-child { float: none; width: auto; margin: 0; }
+    .service-intro { display: grid; grid-template-columns: minmax(260px, .78fr) minmax(0, 1.22fr); align-items: center; gap: clamp(28px, 5vw, 64px); }
+    .service-intro > * { min-width: 0; }
     #services .gallery { clear: both; }
-    #services .feature-image { height: 430px; max-height: none; object-fit: cover; object-position: top; box-shadow: 0 20px 50px rgba(23, 59, 61, .14); }
+    #services .feature-image { height: 390px; max-height: none; object-fit: cover; object-position: top; box-shadow: 0 20px 50px rgba(23, 59, 61, .14); }
     #services .service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 28px; }
     #services .service-card { min-height: 218px; }
     #services .steps { margin-top: 42px; }
@@ -201,21 +200,19 @@
     }
     @media only screen and (max-width: 767px) {
       header { padding-bottom: 60px; }
-      header .banner { padding-top: 90px; }
+      header .banner { padding-top: 70px; }
       header .banner-text p { font-size: 17px; }
       .content-section { padding: 58px 20px; }
       .hero-layout { grid-template-columns: 1fr; gap: 12px; min-height: 0; text-align: center; }
       .hero-layout .hero-pills { justify-content: center; }
-      .hero-visual { min-height: 280px; margin: 14px 18px 0; }
+      .hero-visual { min-height: 280px; margin: 14px 18px 0; padding: 0 0 18px; }
       .hero-visual img { height: 280px; }
       .hero-badge { left: -18px; bottom: 8px; width: 112px; height: 112px; font-size: 11px; }
       .hero-badge i { font-size: 18px; }
       .service-grid, .gallery { grid-template-columns: 1fr; }
-      .service-row > .six.columns:first-child,
-      .service-row > .six.columns:last-child { float: none; width: 100%; margin-right: 0; }
-      .service-row { display: block; }
+      .service-intro { display: block; }
       .service-copy { padding-left: 0; margin-top: 30px; }
-      #services .feature-image { height: 360px; }
+      #services .feature-image { height: 300px; }
       #services .service-grid { grid-template-columns: 1fr; }
       .album { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 160px 160px; gap: 12px; margin-top: 24px; }
       .album figure:first-child { grid-column: 1 / 3; grid-row: auto; }
@@ -275,11 +272,11 @@
       <div><strong>1 call</strong><span>To get started</span></div>
     </div>
     <section id="services" class="content-section reveal" aria-labelledby="services-title">
-      <div class="row service-row">
-        <div class="six columns">
+      <div class="row service-intro">
+        <div>
           <img class="feature-image" src="images/victoriachecklist.png" alt="Cleaning checklist prepared by Victoria Royal Cleaners">
         </div>
-        <div class="six columns service-copy">
+        <div class="service-copy">
           <p class="section-kicker">What we do</p>
           <h2 id="services-title">A fresh start for every room.</h2>
           <p class="section-intro">We offer flexible housekeeping services tailored to your home, office, or move. Tell us what you need and we will help you create a cleaning plan that fits.</p>
