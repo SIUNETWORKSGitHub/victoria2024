@@ -26,15 +26,15 @@
     body { background: var(--cream); color: var(--muted); }
     header {
       position: relative;
-      min-height: 640px;
+      min-height: min(820px, 100svh);
       height: auto !important;
       background: linear-gradient(135deg, rgba(23, 59, 61, .97), rgba(38, 91, 82, .88)),
         url("images/cleaners.jpg") center/cover;
-      padding-bottom: 90px;
+      padding-bottom: 72px;
     }
-    .hero-layout { display: grid; grid-template-columns: 1.08fr .92fr; gap: 48px; align-items: center; text-align: left; }
+    .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 78px); align-items: center; min-height: 610px; text-align: left; }
     .hero-visual { position: relative; min-height: 430px; }
-    .hero-visual img { width: 100%; height: 430px; object-fit: cover; border: 8px solid rgba(255,255,255,.92); border-radius: 28px; box-shadow: 0 24px 60px rgba(0,0,0,.28); transform: rotate(2deg); }
+    .hero-visual img { width: 100%; height: clamp(360px, 48vw, 520px); object-fit: cover; object-position: center; border: 8px solid rgba(255,255,255,.92); border-radius: 28px; box-shadow: 0 24px 60px rgba(0,0,0,.28); transform: rotate(2deg); }
     .hero-badge { position: absolute; left: -28px; bottom: 28px; width: 150px; height: 150px; display: grid; place-items: center; padding: 18px; border-radius: 50%; background: var(--gold); color: var(--ink); text-align: center; font: 14px/1.35 'opensans-bold', sans-serif; box-shadow: 0 12px 30px rgba(0,0,0,.22); transform: rotate(-8deg); }
     .hero-badge i { display: block; margin-bottom: 6px; font-size: 24px; }
     header::after {
@@ -89,7 +89,7 @@
       position: relative;
       z-index: 2;
       max-width: 860px;
-      margin: -36px auto 0;
+      margin: -18px auto 0;
       padding: 22px 26px;
       border-radius: 18px;
       background: rgba(255,255,255,.96);
@@ -142,11 +142,13 @@
     .section-cta p { margin-bottom: 8px; color: var(--ink); font: 18px 'opensans-bold', sans-serif; }
     .service-copy { padding-left: 12px; }
     .service-copy .section-intro { max-width: 760px; }
-    .service-row { display: block; }
-    .service-row > .six.columns:first-child { float: left; width: 38%; margin-right: 5%; }
-    .service-row > .six.columns:last-child { float: left; width: 57%; }
-    .service-row::after { content: ""; display: table; clear: both; }
+    .service-row { display: grid; grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr); align-items: center; gap: clamp(28px, 5vw, 76px); }
+    .service-row > .six.columns:first-child,
+    .service-row > .six.columns:last-child { float: none; width: auto; margin: 0; }
     #services .gallery { clear: both; }
+    #services .feature-image { height: 560px; max-height: none; object-fit: cover; box-shadow: 0 20px 50px rgba(23, 59, 61, .14); }
+    #services .service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 28px; }
+    #services .service-card { min-height: 260px; }
     #testimonials .gallery { margin-top: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     #testimonials .gallery img { height: 260px; }
     .gallery { margin-top: 40px; }
@@ -191,7 +193,7 @@
       header .banner { padding-top: 90px; }
       header .banner-text p { font-size: 17px; }
       .content-section { padding: 58px 20px; }
-      .hero-layout { grid-template-columns: 1fr; gap: 12px; text-align: center; }
+      .hero-layout { grid-template-columns: 1fr; gap: 12px; min-height: 0; text-align: center; }
       .hero-layout .hero-pills { justify-content: center; }
       .hero-visual { min-height: 280px; margin: 14px 18px 0; }
       .hero-visual img { height: 280px; }
@@ -200,7 +202,10 @@
       .service-grid, .gallery { grid-template-columns: 1fr; }
       .service-row > .six.columns:first-child,
       .service-row > .six.columns:last-child { float: none; width: 100%; margin-right: 0; }
+      .service-row { display: block; }
       .service-copy { padding-left: 0; margin-top: 30px; }
+      #services .feature-image { height: 360px; }
+      #services .service-grid { grid-template-columns: 1fr; }
       #testimonials .gallery { grid-template-columns: 1fr 1fr; }
       #testimonials .gallery img { height: 200px; }
       .steps { grid-template-columns: 1fr; gap: 26px; }
@@ -264,16 +269,18 @@
           <p class="section-kicker">What we do</p>
           <h2 id="services-title">A fresh start for every room.</h2>
           <p class="section-intro">We offer flexible housekeeping services tailored to your home, office, or move. Tell us what you need and we will help you create a cleaning plan that fits.</p>
-          <div class="service-grid">
-            <article class="service-card"><div class="service-icon"><i class="fa fa-home" aria-hidden="true"></i></div><h3>Regular cleaning</h3><p>Consistent upkeep that keeps your space comfortable and guest-ready.</p></article>
-            <article class="service-card"><div class="service-icon"><i class="fa fa-star" aria-hidden="true"></i></div><h3>Deep cleaning</h3><p>Detailed attention for kitchens, bathrooms, bedrooms, and hard-to-reach areas.</p></article>
-            <article class="service-card"><div class="service-icon"><i class="fa fa-key" aria-hidden="true"></i></div><h3>Move cleaning</h3><p>Move-in and move-out cleaning to make transitions easier and smoother.</p></article>
-          </div>
-          <div class="steps" aria-label="How booking works">
-            <div class="step"><span class="step-number">1</span><h3>Tell us what you need</h3><p>Share your space, priorities, and preferred timing.</p></div>
-            <div class="step"><span class="step-number">2</span><h3>Choose your clean</h3><p>We help match you with the right service.</p></div>
-            <div class="step"><span class="step-number">3</span><h3>Enjoy the difference</h3><p>Relax in a space that feels refreshed and cared for.</p></div>
-          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="service-grid">
+          <article class="service-card"><div class="service-icon"><i class="fa fa-home" aria-hidden="true"></i></div><h3>Regular cleaning</h3><p>Consistent upkeep that keeps your space comfortable and guest-ready.</p></article>
+          <article class="service-card"><div class="service-icon"><i class="fa fa-star" aria-hidden="true"></i></div><h3>Deep cleaning</h3><p>Detailed attention for kitchens, bathrooms, bedrooms, and hard-to-reach areas.</p></article>
+          <article class="service-card"><div class="service-icon"><i class="fa fa-key" aria-hidden="true"></i></div><h3>Move cleaning</h3><p>Move-in and move-out cleaning to make transitions easier and smoother.</p></article>
+        </div>
+        <div class="steps" aria-label="How booking works">
+          <div class="step"><span class="step-number">1</span><h3>Tell us what you need</h3><p>Share your space, priorities, and preferred timing.</p></div>
+          <div class="step"><span class="step-number">2</span><h3>Choose your clean</h3><p>We help match you with the right service.</p></div>
+          <div class="step"><span class="step-number">3</span><h3>Enjoy the difference</h3><p>Relax in a space that feels refreshed and cared for.</p></div>
         </div>
       </div>
       <div class="row gallery" aria-label="Examples of cleaned spaces">
