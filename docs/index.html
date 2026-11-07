@@ -27,7 +27,7 @@
     header {
       position: relative;
       min-height: 640px;
-      height: auto;
+      height: auto !important;
       background: linear-gradient(135deg, rgba(23, 59, 61, .97), rgba(38, 91, 82, .88)),
         url("images/cleaners.jpg") center/cover;
       padding-bottom: 90px;
@@ -122,11 +122,14 @@
     .content-section { padding: 100px 0; background: var(--white); }
     .content-section.alt { background: var(--cream); }
     .content-section h2 { color: var(--ink); font-size: 34px; margin-bottom: 14px; }
+    #testimonials { background: var(--cream) !important; color: var(--muted); }
+    #testimonials h2 { color: var(--ink) !important; }
+    #testimonials .section-kicker { color: var(--gold); }
     .section-kicker { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 12px; color: var(--gold); font: 13px/1.5 'opensans-bold', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
     .section-kicker::before { content: ""; width: 28px; height: 2px; background: var(--gold); }
     .section-intro { max-width: 650px; margin-bottom: 34px; font-size: 17px; }
     .feature-image { width: 100%; max-height: 360px; object-fit: cover; border-radius: 16px; }
-    .service-grid, .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .service-grid, .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
     .service-card { padding: 24px; border: 1px solid #e5e1d7; border-radius: 14px; background: var(--white); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
     .service-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 18px 32px rgba(23, 59, 61, .12); }
     .service-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 16px; border-radius: 14px; background: #edf5ef; color: var(--ink); font-size: 21px; }
@@ -137,6 +140,15 @@
     .step h3 { margin-bottom: 6px; color: var(--ink); }
     .section-cta { margin-top: 38px; text-align: center; }
     .section-cta p { margin-bottom: 8px; color: var(--ink); font: 18px 'opensans-bold', sans-serif; }
+    .service-copy { padding-left: 12px; }
+    .service-copy .section-intro { max-width: 760px; }
+    .service-row { display: block; }
+    .service-row > .six.columns:first-child { float: left; width: 38%; margin-right: 5%; }
+    .service-row > .six.columns:last-child { float: left; width: 57%; }
+    .service-row::after { content: ""; display: table; clear: both; }
+    #services .gallery { clear: both; }
+    #testimonials .gallery { margin-top: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #testimonials .gallery img { height: 260px; }
     .gallery { margin-top: 40px; }
     .gallery figure { position: relative; margin: 0; overflow: hidden; border-radius: 14px; }
     .gallery img { display: block; width: 100%; height: 190px; object-fit: cover; border-radius: 14px; transition: transform .45s ease; }
@@ -186,6 +198,11 @@
       .hero-badge { left: -18px; bottom: 8px; width: 112px; height: 112px; font-size: 11px; }
       .hero-badge i { font-size: 18px; }
       .service-grid, .gallery { grid-template-columns: 1fr; }
+      .service-row > .six.columns:first-child,
+      .service-row > .six.columns:last-child { float: none; width: 100%; margin-right: 0; }
+      .service-copy { padding-left: 0; margin-top: 30px; }
+      #testimonials .gallery { grid-template-columns: 1fr 1fr; }
+      #testimonials .gallery img { height: 200px; }
       .steps { grid-template-columns: 1fr; gap: 26px; }
       .gallery img { height: 220px; }
       .trust-bar { grid-template-columns: 1fr; gap: 14px; margin: -24px 20px 0; }
@@ -239,11 +256,11 @@
       <div><strong>1 call</strong><span>To get started</span></div>
     </div>
     <section id="services" class="content-section reveal" aria-labelledby="services-title">
-      <div class="row">
+      <div class="row service-row">
         <div class="six columns">
           <img class="feature-image" src="images/victoriachecklist.png" alt="Cleaning checklist prepared by Victoria Royal Cleaners">
         </div>
-        <div class="six columns">
+        <div class="six columns service-copy">
           <p class="section-kicker">What we do</p>
           <h2 id="services-title">A fresh start for every room.</h2>
           <p class="section-intro">We offer flexible housekeeping services tailored to your home, office, or move. Tell us what you need and we will help you create a cleaning plan that fits.</p>
@@ -321,6 +338,14 @@
   <script src="js/magnific-popup.js"></script>
   <script src="js/init.js"></script>
   <script>
+    (function () {
+      function fitHeader() {
+        var header = document.querySelector('header');
+        if (header) header.style.height = 'auto';
+      }
+      fitHeader();
+      window.addEventListener('resize', fitHeader);
+    }());
     (function () {
       var items = document.querySelectorAll('.reveal');
       if (!('IntersectionObserver' in window)) {
