@@ -1,299 +1,201 @@
-<!DOCTYPE html>
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<!doctype html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Professional residential and commercial cleaning services from Victoria Royal Cleaners in South Florida.">
+  <meta name="theme-color" content="#163b3d">
+  <title>Victoria Royal Cleaners | Professional Cleaning Services</title>
 
-     <!--- Basic Page Needs
-      ================================================== -->
-            <meta charset="utf-8">
-            <title>Royal Victoria's Cleaners</title>
-            <meta name="description" content="">
-            <meta name="author" content="">
-            <meta name="author" content="Roberto Siu">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/media-queries.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="shortcut icon" href="favicon.png">
 
+  <style>
+    :root {
+      --ink: #173b3d;
+      --muted: #587174;
+      --cream: #f7f5ef;
+      --gold: #d39a45;
+      --white: #fff;
+    }
 
-    <!-- Mobile Specific Metas
-     ================================================== -->
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-   
-    <!-- CSS
-     ================================================== -->
-          <link rel="stylesheet" href="css/default.css">
-          <link rel="stylesheet" href="css/layout.css">
-          <link rel="stylesheet" href="css/media-queries.css">
-          <link rel="stylesheet" href="css/magnific-popup.css">
-
-    <!-- Script
-     ================================================== -->
-        <script src="js/modernizr.js"></script>
-	<script src="main.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-
-
-        <!-- Favicons
-            ================================================== -->
-            <link rel="shortcut icon" href="favicon.png" >
-	
-
-        <! Radio for my images with ccs style.>
-
-            <style>
-                img {
-                border-radius: 14px;
-              }
-              
-	    </style>
-	
-	    <! Color Green for p - /p >
-	
-	    <style>
-	        p{ color: green;
-	        font-side: 36px;
-	        }
-	    </style>
-
-
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--muted); }
+    header {
+      min-height: 640px;
+      height: auto;
+      background: linear-gradient(135deg, rgba(23, 59, 61, .97), rgba(38, 91, 82, .88)),
+        url("images/cleaners.jpg") center/cover;
+      padding-bottom: 90px;
+    }
+    #nav-wrap { background: rgba(23, 59, 61, .92); }
+    ul#nav li.current a, ul#nav li a:hover, ul#nav li a:focus { color: #f2c477; }
+    header .banner { padding-top: 110px; }
+    header .banner-text h1 {
+      max-width: 860px;
+      font-size: clamp(42px, 7vw, 82px);
+      line-height: 1.08;
+      letter-spacing: -1px;
+    }
+    header .banner-text p {
+      max-width: 680px;
+      margin: 0 auto 18px;
+      color: #f2f6f1;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+    .eyebrow {
+      color: #f2c477;
+      font: 14px/1.5 'opensans-bold', sans-serif;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .button {
+      display: inline-block;
+      margin: 10px 6px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--ink) !important;
+      font-family: 'opensans-bold', sans-serif;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button:hover, .button:focus { background: #f2c477; transform: translateY(-2px); }
+    .button.secondary { background: transparent; border: 1px solid rgba(255,255,255,.7); color: var(--white) !important; }
+    .content-section { padding: 84px 0; background: var(--white); }
+    .content-section.alt { background: var(--cream); }
+    .content-section h2 { color: var(--ink); font-size: 34px; margin-bottom: 14px; }
+    .section-intro { max-width: 650px; margin-bottom: 34px; font-size: 17px; }
+    .feature-image { width: 100%; max-height: 360px; object-fit: cover; border-radius: 16px; }
+    .service-grid, .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .service-card { padding: 24px; border: 1px solid #e5e1d7; border-radius: 14px; background: var(--white); }
+    .service-card h3 { color: var(--ink); margin-bottom: 8px; }
+    .gallery img { width: 100%; height: 190px; object-fit: cover; border-radius: 14px; }
+    blockquote { margin-top: 20px; padding: 24px 28px; border-left: 4px solid var(--gold); background: var(--cream); }
+    #contact { background: var(--ink); color: #e8f0ea; }
+    #contact h2, #contact a { color: #f2c477; }
+    #contact address { font-size: 17px; line-height: 2; font-style: normal; }
+    .contact-photo { width: 100%; max-height: 300px; object-fit: cover; border-radius: 16px; }
+    footer { background: #102c2e; color: #c6d5d0; padding: 28px 0; text-align: center; }
+    footer p { margin-bottom: 6px; }
+    footer a { color: #f2c477; }
+    @media only screen and (max-width: 767px) {
+      header { padding-bottom: 60px; }
+      header .banner { padding-top: 90px; }
+      header .banner-text p { font-size: 17px; }
+      .content-section { padding: 58px 20px; }
+      .service-grid, .gallery { grid-template-columns: 1fr; }
+      .gallery img { height: 220px; }
+    }
+  </style>
 </head>
-         
+
 <body>
+  <header id="home">
+    <nav id="nav-wrap" aria-label="Main navigation">
+      <a class="mobile-btn" href="#nav-wrap" title="Show navigation" aria-label="Show navigation">Menu</a>
+      <a class="mobile-btn" href="#" title="Hide navigation" aria-label="Hide navigation">Close</a>
+      <ul id="nav" class="nav">
+        <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+        <li><a class="smoothscroll" href="#services">Services</a></li>
+        <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
+        <li><a class="smoothscroll" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-      <!-- Header
-	   ================================================== -->
-	   <header id="home">
-	
-	      <nav id="nav-wrap">
-	
-	         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-		      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
-	
-	         <ul id="nav" class="nav">
-			 
-	            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
-		     <li><a class="smoothscroll" href="#services">Our Services</a></li>	 
-	            <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
-		    <li><a class="smoothscroll" href="#contact">Contact Us</a></li>
-		    
-	         </ul> <!-- end #nav -->
-	
-	      </nav> <!-- end #nav-wrap -->
-	
-	      <div class="row banner">
-	         <div class="banner-text">
-	          <h1 class="responsive-headline">Hello, I'm the cleaner at Victoria Royal.</h1>								   
-			 
-                   <p>Professional Cleaning Services, Let us give elegance to your home and business!! </p>
-		
-	            <p> I invite you to visit my social networks shown below </p> 	 
-			 
-	            <ul class="social"></CENTER>
-	               <li><a href="https://m.facebook.com/story.php?story_fbid=3720785538191428&substory_index=3720785538191428&id=61554980956238&sfnsn=mo&mibextid=RUbZ1f " target="_blank"><i class="fa fa-facebook"></i></a></li>
-	            </ul>
-		 </div>
-	      </div>
-	      
-	     <h1> <p class="scrolldown">
-	         <a class="smoothscroll" href="#services"><i class="icon-down-circle"></i></a>
-	      </p></h1>
-	   </div>
-	  
-		   
-	   </header> <!-- Header End -->
-              
-              <hr>
-	
+    <div class="row banner">
+      <div class="banner-text">
+        <p class="eyebrow">Victoria Royal Cleaners</p>
+        <h1>Beautifully clean spaces, every time.</h1>
+        <p>Reliable residential and commercial cleaning with the care, detail, and professionalism your space deserves.</p>
+        <a class="button" href="#contact">Request a quote</a>
+        <a class="button secondary" href="#services">Explore services</a>
+        <ul class="social" aria-label="Social media">
+          <li><a href="https://m.facebook.com/story.php?story_fbid=3720785538191428&amp;substory_index=3720785538191428&amp;id=61554980956238&amp;sfnsn=mo&amp;mibextid=RUbZ1f" target="_blank" rel="noopener noreferrer" aria-label="Visit us on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
 
-	<center><img class="profile-pic"  src="images/cleaners.jpg" alt="20% "/></center>
+  <main>
+    <section id="services" class="content-section" aria-labelledby="services-title">
+      <div class="row">
+        <div class="six columns">
+          <img class="feature-image" src="images/victoriachecklist.png" alt="Cleaning checklist prepared by Victoria Royal Cleaners">
+        </div>
+        <div class="six columns">
+          <p class="eyebrow">What we do</p>
+          <h2 id="services-title">A fresh start for every room.</h2>
+          <p class="section-intro">We offer flexible housekeeping services tailored to your home, office, or move. Tell us what you need and we will help you create a cleaning plan that fits.</p>
+          <div class="service-grid">
+            <article class="service-card"><h3>Regular cleaning</h3><p>Consistent upkeep that keeps your space comfortable and guest-ready.</p></article>
+            <article class="service-card"><h3>Deep cleaning</h3><p>Detailed attention for kitchens, bathrooms, bedrooms, and hard-to-reach areas.</p></article>
+            <article class="service-card"><h3>Move cleaning</h3><p>Move-in and move-out cleaning to make transitions easier and smoother.</p></article>
+          </div>
+        </div>
+      </div>
+      <div class="row gallery" aria-label="Examples of cleaned spaces">
+        <img src="images/bedclean.jpg" alt="Freshly cleaned bedroom">
+        <img src="images/toiletclean.jpg" alt="Spotless cleaned bathroom">
+        <img src="images/kitchenclean.jpg" alt="Clean and organized kitchen">
+      </div>
+    </section>
 
-	    </div> <!-- end .main-col -->
-	
-	 <div class="row">
+    <section id="testimonials" class="content-section alt" aria-labelledby="testimonials-title">
+      <div class="row">
+        <div class="six columns">
+          <p class="eyebrow">Client experience</p>
+          <h2 id="testimonials-title">The difference is in the details.</h2>
+          <blockquote>
+            <p>“The cleaning team did an amazing job! Very thorough and professional. Highly recommend.”</p>
+            <cite>Roberto Siu</cite>
+          </blockquote>
+        </div>
+        <div class="six columns gallery">
+          <img src="images/testimonialsclean.jpg" alt="Clean home interior">
+          <img src="images/testimonialsclean2.jpg" alt="Bright, tidy living space">
+        </div>
+      </div>
+    </section>
 
-	 <!-- services Section
-	   ================================================== -->
-	   <section id="services">
-	
-	      <div class="row">
-	
-	         <div class="three columns">
-	
-	            <img class="profile-pic"  src="images/victoriachecklist.png" alt="" />
-	
-	         </div>
-	
-	         <div class="nine columns main-col">
-	
-	            <h2>Our Services</h2>
-                  
-                        <p>We offer a range of housekeeping services to meet your needs.</p>
-                        <ul>
-                            <li>Regular Cleaning</li>
-                            <li>Deep Cleaning</li>
-                            <li>Move-in/Move-out Cleaning</li>
-                            <!-- Add more services as needed -->
-                        </ul>
+    <section id="contact" class="content-section" aria-labelledby="contact-title">
+      <div class="row">
+        <div class="five columns">
+          <img class="contact-photo" src="images/me1.png" alt="Victoria Royal Cleaners team">
+        </div>
+        <div class="seven columns">
+          <p class="eyebrow">Let's get started</p>
+          <h2 id="contact-title">Ready for a cleaner space?</h2>
+          <p>Reach out for a quote or to schedule a cleaning. Hablamos español.</p>
+          <address>
+            Email: <a href="mailto:jesushenriquez196@gmail.com">jesushenriquez196@gmail.com</a><br>
+            Phone (Español): <a href="tel:+13054799970">+1 (305) 479-9970</a><br>
+            Phone (English, WhatsApp only): <a href="tel:+13059225254">+1 (305) 922-5254</a>
+          </address>
+          <a class="button" href="mailto:jesushenriquez196@gmail.com?subject=Cleaning%20quote%20request">Email for a quote</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-			<div class="gallery">
-		        <img src="images/bedclean.jpg" alt="Bedrooms">
-		        <img src="images/toiletclean.jpg" alt="Bathrooms">
-		        <img src="images/kitchenclean.jpg" alt="Kitchens">
-						 
-		        <!-- Add more images as needed -->
-		         </div>
-	      </div>
-	
-		      
-	     <hr>
-	
-	     </div>
-	     </div>
-	
-	     <h1> <p class="scrolldown">
-	         <a class="smoothscroll" href="#testimonials"><i class="icon-down-circle"></i></a>
-	      </p></h1>
-	
-	   </header> <!-- Services End -->
-              
-              <hr>
-              
-                </div> <!-- end .main-col -->
+  <footer>
+    <div class="row">
+      <p>&copy; 2024 Victoria Royal Cleaners. All rights reserved.</p>
+      <a href="https://www.styleshout.com/free-templates/ceevee/" target="_blank" rel="noopener noreferrer">Template by CeeVee</a>
+      <span> · Modified by <a href="https://siucloud.org" target="_blank" rel="noopener noreferrer">siucloud.org</a></span>
+    </div>
+  </footer>
 
-	   </br>
-	
-	   <!-- testimonials Section
-	   ================================================== -->
-	   <section id="testimonials">
-	
-	      <div class="row">
-	
-	         <div class="four columns">
-	 
-	
-	         </div>
-	
-	         <div class="nine columns main-col">
-	
-	        
-                        <h2>Testimonials</h2>
-                        <p>See what our clients are saying about us.</p>
-                        <blockquote>
-                            <p>"The cleaning team did an amazing job! Very thorough and professional. Highly recommend."</p>
-                            <cite>- Roberto Siu</cite>
-                        </blockquote>
-                        <!-- Add more testimonials as needed -->
-
-			 
-	            <img class="profile-pic"  src="images/testimonialsclean.jpg" alt="" />
-		    <img class="profile-pic"  src="images/testimonialsclean2.jpg" alt="" />	
-	
-	     </div>
-	     </div>
-	
-	     <h1> <p class="scrolldown">
-	         <a class="smoothscroll" href="#contact"><i class="icon-down-circle"></i></a>
-	      </p></h1>
-	
-	   </header> <!-- testimonials End -->
-              
-              <hr>
-              
-                </div> <!-- end .main-col -->
-
-	   </br>
-	
-			 
-
-	   <!-- contact Section
-	   ================================================== -->
-	   <section id="contact">
-	
-	      <div class="row">
-	
-	         <div class="onecolumns">
-	          <img class="profile-pic"  src="images/me1.png" alt="" />
-	             
-	
-	         </div>
-	
-	         <div class="ten columns main-col">
-
-                    <section class="contact">
-                        <h2>Contact Us</h2>
-                        <p>Reach out to us for a quote or to schedule a cleaning. Hablamos espanol.</p>
-                        <address>
-                            Email: <a href="mailto:jesushenriquez196@gmail.com">jesushenriquez196@gmail.com</a><br>
-			    </br>
-			     </br>	
-                            Phone(Espanol): <a href="tel:+1(305)479-9970">+1 (305)479-9970
-			    </br>
-			     </br>	    
-				    
-			    Phone( English -What's up Only): <a href="tel:+1(305)922-5254">+1 (305)922-5254
-                             </br>
-			     </br>
-                            <!-- Add more contact information as needed -->
-				    
-                 </header> <!-- contact End -->
-              
-              <hr>
-              
-                </div> <!-- end .main-col -->
-		 <div class="row">
-	
-	   </header> <!-- contact End -->
-              
-              <hr>
-              
-                </div> <!-- end .main-col --> 
-
-		 </br>
-		</div>
-	      </div>   
-
-	   </br> 
-
-
-		<!-- footer
-	   ================================================== -->
-	   <footer>
-	
-	      <div class="row">
-	
-	         <div class="twelve columns">
-	
-	            
-	
-	            <ul class="copyright">
-		         <p>&copy; 2024 Victoria Royal Cleaners. All rights reserved.</p>	    
-	               <a href="https://www.styleshout.com/free-templates/ceevee/"> Template by CeeVee, and modified by siucloud.org</a>
-	                
-	            </ul>
-	
-	         </div>
-	
-	         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
-
-		 <img class="profile-pic"  src="images/siucloudlogo.png" alt="" />     
-	
-	      </div>
-	
-	   </footer> <!-- Footer End-->
-	
-	   <!-- Java Script
-	   ================================================== -->
-	   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
-	   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-	
-	   <script src="js/jquery.flexslider.js"></script>
-	   <script src="js/waypoints.js"></script>
-	   <script src="js/jquery.fittext.js"></script>
-	   <script src="js/magnific-popup.js"></script>
-	   <script src="js/init.js"></script>	 
-   
-
+  <script src="js/jquery-1.10.2.min.js"></script>
+  <script src="js/jquery-migrate-1.2.1.min.js"></script>
+  <script src="js/jquery.flexslider.js"></script>
+  <script src="js/waypoints.js"></script>
+  <script src="js/jquery.fittext.js"></script>
+  <script src="js/magnific-popup.js"></script>
+  <script src="js/init.js"></script>
 </body>
 </html>
