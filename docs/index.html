@@ -119,7 +119,7 @@
     }
     .button:hover, .button:focus { background: #f2c477; transform: translateY(-2px); }
     .button.secondary { background: transparent; border: 1px solid rgba(255,255,255,.7); color: var(--white) !important; }
-    .content-section { padding: 100px 0; background: var(--white); }
+    .content-section { padding: 82px 0; background: var(--white); }
     .content-section.alt { background: var(--cream); }
     .content-section h2 { color: var(--ink); font-size: 34px; margin-bottom: 14px; }
     #testimonials { background: var(--cream) !important; color: var(--muted); }
@@ -142,13 +142,24 @@
     .section-cta p { margin-bottom: 8px; color: var(--ink); font: 18px 'opensans-bold', sans-serif; }
     .service-copy { padding-left: 12px; }
     .service-copy .section-intro { max-width: 760px; }
-    .service-row { display: grid; grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr); align-items: center; gap: clamp(28px, 5vw, 76px); }
+    .service-row { display: grid; grid-template-columns: minmax(260px, .78fr) minmax(0, 1.22fr); align-items: center; gap: clamp(28px, 5vw, 64px); }
     .service-row > .six.columns:first-child,
     .service-row > .six.columns:last-child { float: none; width: auto; margin: 0; }
     #services .gallery { clear: both; }
-    #services .feature-image { height: 560px; max-height: none; object-fit: cover; box-shadow: 0 20px 50px rgba(23, 59, 61, .14); }
+    #services .feature-image { height: 430px; max-height: none; object-fit: cover; object-position: top; box-shadow: 0 20px 50px rgba(23, 59, 61, .14); }
     #services .service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 28px; }
-    #services .service-card { min-height: 260px; }
+    #services .service-card { min-height: 218px; }
+    #services .steps { margin-top: 42px; }
+    .album-heading { margin-top: 78px; text-align: center; }
+    .album-heading h3 { margin-bottom: 8px; color: var(--ink); font-size: 28px; }
+    .album-heading p { max-width: 600px; margin: 0 auto; }
+    .album { display: grid; grid-template-columns: 1.35fr .65fr .65fr; grid-template-rows: 180px 180px; gap: 16px; max-width: 1000px; margin: 30px auto 0; }
+    .album figure { position: relative; min-height: 0; margin: 0; overflow: hidden; border-radius: 18px; background: var(--ink); box-shadow: 0 10px 24px rgba(23, 59, 61, .12); }
+    .album figure:first-child { grid-row: 1 / 3; }
+    .album img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease, filter .45s ease; }
+    .album figure:hover img { transform: scale(1.06); filter: brightness(1.08); }
+    .album figcaption { position: absolute; right: 12px; bottom: 12px; left: 12px; padding: 9px 12px; border-radius: 10px; background: rgba(23, 59, 61, .82); color: #fff; font: 13px 'opensans-bold', sans-serif; }
+    .album figcaption i { margin-right: 6px; color: var(--gold); }
     #testimonials .gallery { margin-top: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     #testimonials .gallery img { height: 260px; }
     .gallery { margin-top: 40px; }
@@ -206,6 +217,9 @@
       .service-copy { padding-left: 0; margin-top: 30px; }
       #services .feature-image { height: 360px; }
       #services .service-grid { grid-template-columns: 1fr; }
+      .album { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 160px 160px; gap: 12px; margin-top: 24px; }
+      .album figure:first-child { grid-column: 1 / 3; grid-row: auto; }
+      .album-heading { margin-top: 58px; }
       #testimonials .gallery { grid-template-columns: 1fr 1fr; }
       #testimonials .gallery img { height: 200px; }
       .steps { grid-template-columns: 1fr; gap: 26px; }
@@ -283,10 +297,17 @@
           <div class="step"><span class="step-number">3</span><h3>Enjoy the difference</h3><p>Relax in a space that feels refreshed and cared for.</p></div>
         </div>
       </div>
-      <div class="row gallery" aria-label="Examples of cleaned spaces">
-        <figure><img src="images/bedclean.jpg" alt="Freshly cleaned bedroom"><figcaption>Bedrooms</figcaption></figure>
-        <figure><img src="images/toiletclean.jpg" alt="Spotless cleaned bathroom"><figcaption>Bathrooms</figcaption></figure>
-        <figure><img src="images/kitchenclean.jpg" alt="Clean and organized kitchen"><figcaption>Kitchens</figcaption></figure>
+      <div class="album-heading">
+        <p class="section-kicker">Our work</p>
+        <h3>A closer look at the clean.</h3>
+        <p>From bedrooms to kitchens, we bring a fresh finish to the spaces you use every day.</p>
+      </div>
+      <div class="album" aria-label="Gallery of cleaned spaces">
+        <figure><img src="images/bedclean.jpg" alt="Freshly cleaned bedroom"><figcaption><i class="fa fa-bed" aria-hidden="true"></i> Bedrooms</figcaption></figure>
+        <figure><img src="images/toiletclean.jpg" alt="Spotless cleaned bathroom"><figcaption><i class="fa fa-bath" aria-hidden="true"></i> Bathrooms</figcaption></figure>
+        <figure><img src="images/kitchenclean.jpg" alt="Clean and organized kitchen"><figcaption><i class="fa fa-cutlery" aria-hidden="true"></i> Kitchens</figcaption></figure>
+        <figure><img src="images/bathclean.jpg" alt="Detailed bathroom cleaning"><figcaption><i class="fa fa-shower" aria-hidden="true"></i> Detail work</figcaption></figure>
+        <figure><img src="images/roomclean.jpg" alt="Bright and tidy living room"><figcaption><i class="fa fa-home" aria-hidden="true"></i> Living spaces</figcaption></figure>
       </div>
       <div class="section-cta"><p>Ready to make your space shine?</p><a class="button" href="#contact">Get your free quote</a></div>
     </section>
