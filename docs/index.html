@@ -32,6 +32,11 @@
         url("images/cleaners.jpg") center/cover;
       padding-bottom: 90px;
     }
+    .hero-layout { display: grid; grid-template-columns: 1.08fr .92fr; gap: 48px; align-items: center; text-align: left; }
+    .hero-visual { position: relative; min-height: 430px; }
+    .hero-visual img { width: 100%; height: 430px; object-fit: cover; border: 8px solid rgba(255,255,255,.92); border-radius: 28px; box-shadow: 0 24px 60px rgba(0,0,0,.28); transform: rotate(2deg); }
+    .hero-badge { position: absolute; left: -28px; bottom: 28px; width: 150px; height: 150px; display: grid; place-items: center; padding: 18px; border-radius: 50%; background: var(--gold); color: var(--ink); text-align: center; font: 14px/1.35 'opensans-bold', sans-serif; box-shadow: 0 12px 30px rgba(0,0,0,.22); transform: rotate(-8deg); }
+    .hero-badge i { display: block; margin-bottom: 6px; font-size: 24px; }
     header::after {
       content: "";
       position: absolute;
@@ -61,6 +66,7 @@
       font-size: 19px;
       line-height: 1.7;
     }
+    .hero-layout .banner-text p { margin-left: 0; margin-right: 0; }
     header .banner-text { position: relative; z-index: 1; }
     header .social { position: relative; z-index: 1; }
     .hero-pills {
@@ -70,6 +76,7 @@
       gap: 10px;
       margin: 28px auto 4px;
     }
+    .hero-layout .hero-pills { justify-content: flex-start; }
     .hero-pills span {
       padding: 7px 13px;
       border: 1px solid rgba(255,255,255,.28);
@@ -115,6 +122,8 @@
     .content-section { padding: 100px 0; background: var(--white); }
     .content-section.alt { background: var(--cream); }
     .content-section h2 { color: var(--ink); font-size: 34px; margin-bottom: 14px; }
+    .section-kicker { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 12px; color: var(--gold); font: 13px/1.5 'opensans-bold', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+    .section-kicker::before { content: ""; width: 28px; height: 2px; background: var(--gold); }
     .section-intro { max-width: 650px; margin-bottom: 34px; font-size: 17px; }
     .feature-image { width: 100%; max-height: 360px; object-fit: cover; border-radius: 16px; }
     .service-grid, .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -122,6 +131,12 @@
     .service-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 18px 32px rgba(23, 59, 61, .12); }
     .service-icon { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 16px; border-radius: 14px; background: #edf5ef; color: var(--ink); font-size: 21px; }
     .service-card h3 { color: var(--ink); margin-bottom: 8px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; padding-top: 44px; border-top: 1px solid #e8e4da; }
+    .step { position: relative; padding-left: 52px; }
+    .step-number { position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: var(--gold); font: 14px 'opensans-bold', sans-serif; }
+    .step h3 { margin-bottom: 6px; color: var(--ink); }
+    .section-cta { margin-top: 38px; text-align: center; }
+    .section-cta p { margin-bottom: 8px; color: var(--ink); font: 18px 'opensans-bold', sans-serif; }
     .gallery { margin-top: 40px; }
     .gallery figure { position: relative; margin: 0; overflow: hidden; border-radius: 14px; }
     .gallery img { display: block; width: 100%; height: 190px; object-fit: cover; border-radius: 14px; transition: transform .45s ease; }
@@ -164,7 +179,14 @@
       header .banner { padding-top: 90px; }
       header .banner-text p { font-size: 17px; }
       .content-section { padding: 58px 20px; }
+      .hero-layout { grid-template-columns: 1fr; gap: 12px; text-align: center; }
+      .hero-layout .hero-pills { justify-content: center; }
+      .hero-visual { min-height: 280px; margin: 14px 18px 0; }
+      .hero-visual img { height: 280px; }
+      .hero-badge { left: -18px; bottom: 8px; width: 112px; height: 112px; font-size: 11px; }
+      .hero-badge i { font-size: 18px; }
       .service-grid, .gallery { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; gap: 26px; }
       .gallery img { height: 220px; }
       .trust-bar { grid-template-columns: 1fr; gap: 14px; margin: -24px 20px 0; }
       header::after { width: 220px; height: 220px; right: -110px; }
@@ -186,20 +208,26 @@
     </nav>
 
     <div class="row banner">
-      <div class="banner-text">
-        <p class="eyebrow">Victoria Royal Cleaners</p>
-        <h1>Beautifully clean spaces, every time.</h1>
-        <p>Reliable residential and commercial cleaning with the care, detail, and professionalism your space deserves.</p>
-        <a class="button" href="#contact">Request a quote</a>
-        <a class="button secondary" href="#services">Explore services</a>
-        <div class="hero-pills" aria-label="Service highlights">
-          <span><i class="fa fa-check" aria-hidden="true"></i> Detail focused</span>
-          <span><i class="fa fa-heart" aria-hidden="true"></i> Care you can feel</span>
-          <span><i class="fa fa-calendar" aria-hidden="true"></i> Flexible scheduling</span>
+      <div class="hero-layout">
+        <div class="banner-text">
+          <p class="eyebrow">Victoria Royal Cleaners</p>
+          <h1>Come home to a space that feels brand new.</h1>
+          <p>Reliable residential and commercial cleaning with the care, detail, and professionalism your space deserves.</p>
+          <a class="button" href="#contact">Request a quote <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+          <a class="button secondary" href="#services">See our services</a>
+          <div class="hero-pills" aria-label="Service highlights">
+            <span><i class="fa fa-check" aria-hidden="true"></i> Detail focused</span>
+            <span><i class="fa fa-heart" aria-hidden="true"></i> Care you can feel</span>
+            <span><i class="fa fa-calendar" aria-hidden="true"></i> Flexible scheduling</span>
+          </div>
+          <ul class="social" aria-label="Social media">
+            <li><a href="https://m.facebook.com/story.php?story_fbid=3720785538191428&amp;substory_index=3720785538191428&amp;id=61554980956238&amp;sfnsn=mo&amp;mibextid=RUbZ1f" target="_blank" rel="noopener noreferrer" aria-label="Visit us on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          </ul>
         </div>
-        <ul class="social" aria-label="Social media">
-          <li><a href="https://m.facebook.com/story.php?story_fbid=3720785538191428&amp;substory_index=3720785538191428&amp;id=61554980956238&amp;sfnsn=mo&amp;mibextid=RUbZ1f" target="_blank" rel="noopener noreferrer" aria-label="Visit us on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-        </ul>
+        <div class="hero-visual">
+          <img src="images/VICTORIA.jpg" alt="Victoria Royal Cleaners creating a fresh, welcoming space">
+          <div class="hero-badge"><span><i class="fa fa-star" aria-hidden="true"></i> The clean you can feel</span></div>
+        </div>
       </div>
     </div>
   </header>
@@ -216,13 +244,18 @@
           <img class="feature-image" src="images/victoriachecklist.png" alt="Cleaning checklist prepared by Victoria Royal Cleaners">
         </div>
         <div class="six columns">
-          <p class="eyebrow">What we do</p>
+          <p class="section-kicker">What we do</p>
           <h2 id="services-title">A fresh start for every room.</h2>
           <p class="section-intro">We offer flexible housekeeping services tailored to your home, office, or move. Tell us what you need and we will help you create a cleaning plan that fits.</p>
           <div class="service-grid">
             <article class="service-card"><div class="service-icon"><i class="fa fa-home" aria-hidden="true"></i></div><h3>Regular cleaning</h3><p>Consistent upkeep that keeps your space comfortable and guest-ready.</p></article>
             <article class="service-card"><div class="service-icon"><i class="fa fa-star" aria-hidden="true"></i></div><h3>Deep cleaning</h3><p>Detailed attention for kitchens, bathrooms, bedrooms, and hard-to-reach areas.</p></article>
             <article class="service-card"><div class="service-icon"><i class="fa fa-key" aria-hidden="true"></i></div><h3>Move cleaning</h3><p>Move-in and move-out cleaning to make transitions easier and smoother.</p></article>
+          </div>
+          <div class="steps" aria-label="How booking works">
+            <div class="step"><span class="step-number">1</span><h3>Tell us what you need</h3><p>Share your space, priorities, and preferred timing.</p></div>
+            <div class="step"><span class="step-number">2</span><h3>Choose your clean</h3><p>We help match you with the right service.</p></div>
+            <div class="step"><span class="step-number">3</span><h3>Enjoy the difference</h3><p>Relax in a space that feels refreshed and cared for.</p></div>
           </div>
         </div>
       </div>
@@ -231,12 +264,13 @@
         <figure><img src="images/toiletclean.jpg" alt="Spotless cleaned bathroom"><figcaption>Bathrooms</figcaption></figure>
         <figure><img src="images/kitchenclean.jpg" alt="Clean and organized kitchen"><figcaption>Kitchens</figcaption></figure>
       </div>
+      <div class="section-cta"><p>Ready to make your space shine?</p><a class="button" href="#contact">Get your free quote</a></div>
     </section>
 
     <section id="testimonials" class="content-section alt reveal" aria-labelledby="testimonials-title">
       <div class="row">
         <div class="six columns">
-          <p class="eyebrow">Client experience</p>
+          <p class="section-kicker">Client experience</p>
           <h2 id="testimonials-title">The difference is in the details.</h2>
           <blockquote>
             <p>“The cleaning team did an amazing job! Very thorough and professional. Highly recommend.”</p>
@@ -256,7 +290,7 @@
           <img class="contact-photo" src="images/me1.png" alt="Victoria Royal Cleaners team">
         </div>
         <div class="seven columns">
-          <p class="eyebrow">Let's get started</p>
+          <p class="section-kicker">Let's get started</p>
           <h2 id="contact-title">Ready for a cleaner space?</h2>
           <p>Reach out for a quote or to schedule a cleaning. Hablamos español.</p>
           <address>
